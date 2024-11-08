@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busca de Cliente</title>
+    <link rel="stylesheet" href="style.css"> <!-- Adiciona o link para o CSS externo -->
+    <script src="script.js" defer></script> <!-- Adiciona o link para o JS externo -->
+    </head>
+    <body>
+        <header class="site-header">
+        <div class="logo-container">
+            <img src="images/logo_estacionamento_rio_branco.png" alt="Logo Estacionamento Rio Branco" class="logo">
+        </div> <div class="header-title"> <h1>Estacionamento Rio Branco</h1>
+        </div>
+        </header>
+
+    <h1>Busca de Cliente</h1>
+
+    <!-- Formulário para buscar as informações -->
+    <form id="formBusca">
+        <label for="buscaNome">Nome:</label>
+        <input type="text" id="buscaNome" name="buscaNome"><br>
+
+        <label for="buscaPlaca">Placa do Veículo:</label>
+        <input type="text" id="buscaPlaca" name="buscaPlaca" placeholder="ABC-0000" pattern="[A-Z]{3}-[0-9]{4}"><br>
+
+        <label for="buscaCpfCnpj">CPF ou CNPJ:</label>
+        <input type="text" id="buscaCpfCnpj" name="buscaCpfCnpj"><br>
+
+        <label for="buscaCupom">Cupom:</label>
+        <input type="text" id="buscaCupom" name="buscaCupom" placeholder="000000"><br>
+        <input type="submit" value="Buscar">
+    </form>
+<br><br>
+    <button onclick="window.location.href='index.html'">Voltar</button>
+
+</body>
+</html>
