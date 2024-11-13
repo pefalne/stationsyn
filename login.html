@@ -1,29 +1,47 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - StationSyn</title>
-    <link rel="stylesheet" href="style.css"> <!-- Adiciona o link para o CSS externo -->
-    <script src="script.js" defer></script> <!-- Adiciona o link para o JS externo -->
-    
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
 </head>
-    <body class="tela-login">
+<body>
+    <header>
+        <div class="logotipo">
+            <img src="images/logo_estacionamento_rio_branco.png" alt="Logo Estacionamento Rio Branco">
+        </div>
+        <div class="header-title">
+            <h1>Estacionamento Rio Branco</h1>
+        </div>
+    </header>
 
-    <h1 class="login">Bem Vindo ao StationSyn</h1>
+    <div class="login-container">
+        <h2>Login</h2>
+        <form action="index.html">
+            <input type="email" name="email" placeholder="E-mail">
+            <input type="password" name="senha" placeholder="Senha">
+            <button type="submit">Entrar</button>
+        </form>
+        <h4 id="forgotPasswordLink" class="forgot-password-link">Esqueceu a senha?</h4>
+    </div>
 
-    <div class="form-login">
-        <h3>Login</h3>
-    <form action="index.html">
-        Usuário: <input class="input-lgn" type="login" name="usuario">
-        <br><br>
-        Senha: <input class="input-lgn" type="password" name="senha"><br>
-        <br>
-        <button class="login-btn">Entrar</button>
-    </form>
+    <!-- Popup de Esqueci a Senha -->
+    <div id="forgotPasswordPopup" class="popup-overlay">
+        <div class="popup-content">
+            <h2>Esqueci a Senha</h2>
+            <form id="forgotPasswordForm" action="forgot_password.php" method="POST">
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+                <button type="submit">Enviar</button>
+            </form>
+            <button id="closePopup">Fechar</button>
+        </div>
+    </div>
 
-    <button class="login-btn" action="forgot_password.php">
-    Esquecia a Senha</button>
-</div>
+    <footer>
+        <p>Ortiwell &copy; 2024</p>
+    </footer>
 </body>
 </html>

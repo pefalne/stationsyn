@@ -1,59 +1,180 @@
-/* Estilo do fundo da página */
-body {
-    font-family: Arial, sans-serif;
+/* Reset básico e estilização global */
+* {
     margin: 0;
-    padding: 20px;
-    background-color: #ffffff; /* Azul */
-    color: #000000; /* Preto */
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.logo {
-    max-width: 200px; /* Ajuste conforme necessário */
-    height: auto;
-    margin-right: 20px;
-}
-
-.login-btn{
-    background-color: #1b1b9c;
-    color: white;
-    font-size: 16px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: none;
-    cursor: pointer;
-    transition: 0.3s;
-    margin: 10px;
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-right: 10px;
-    margin-bottom: 10px;
-}
-
-body.tela-login {
-    background-color: #1a1a74;
-    background-image: linear-gradient(45deg, #4b4bee, #1a1a74);
-    color: white;
+body {
     font-family: Arial, Helvetica, sans-serif;
+    background-color: #110F0F; /* Cor de fundo escura */
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    min-height: 100vh;
+    padding-top: 20px;
 }
-h1.login {
 
-    color: #ffffff;
-    font-size: 30px;
+header {
+    background-color: #FFB30F;
+    color: #110F0F;
+    width: 100%;
+    padding: 20px 0;
     text-align: center;
-    margin-top: 50px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
 }
-button.login:hover {
-    background-color: #2d6ee7;
-    color: #ffffff;
+
+header h1 {
+    font-size: 36px;
+    color: #110F0F;
 }
-.input-lgn {   
+
+/* Conteúdo principal */
+.content {
+    width: 90%;
+    max-width: 1100px;
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+    color: #110F0F;
 }
-div.form-login {
-    background-color: rgba(0, 0, 0, 0.9);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    padding: 80px;
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+label {
+    font-size: 16px;
+    color: #110F0F;
+}
+
+input {
+    padding: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    color: #110F0F;
+}
+
+input:focus {
+    border-color: #FFB30F;
+}
+
+button {
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #FFB30F;
+    color: #110F0F;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #e68900;
+}
+
+/* Tabela de Vendas */
+.table-container {
+    margin-top: 20px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #FFB30F;
+    color: #110F0F;
+}
+
+td {
+    background-color: #f9f9f9;
+}
+
+td button {
+    padding: 10px 20px;
+    background-color: #110F0F;
+    color: #FFB30F;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+td button:hover {
+    background-color: #e68900;
+}
+
+/* Texto sem dados */
+.no-data {
+    color: #FFB30F;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Botões */
+.buttons-container {
+    margin-top: 30px;
+    text-align: center;
+}
+
+.back-button {
+    padding: 12px 30px;
+    background-color: #110F0F;
+    color: #FFB30F;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 18px;
+    transition: background-color 0.3s;
+}
+
+.back-button:hover {
+    background-color: #202018;
+}
+
+/* Rodapé */
+footer {
+    background-color: #110F0F;
+    color: #FFB30F;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .content {
+        width: 95%;
+    }
+
+    header h1 {
+        font-size: 28px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px;
+    }
 }

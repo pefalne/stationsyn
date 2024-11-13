@@ -1,0 +1,174 @@
+        <!DOCTYPE html>
+        <html lang="pt-BR">
+        <head>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Página Inicial - Station Syn</title>
+            <link rel="stylesheet" href="style.css">
+            <script src="script.js" defer></script>
+            <!-- Bootstrap CSS -->
+            <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+            <!-- EmailJS SDK -->
+            <script type="text/javascript" src="https://cdn.emailjs.com/dist/email.min.js"></script>
+        </head>
+        <body>
+            <header>
+                <nav>
+                    <ul>
+                        <li><a href="#home">Início</a></li>
+                        <li><a href="#about">Sobre</a></li>
+                        <li><a href="#contact">Contato</a></li>
+                        <li class="right"><button onclick="window.location.href='login.html'">Entrar</button></li>
+                        <li class="right"><button onclick="window.location.href='signup.html'">Criar Conta</button></li>
+                    </ul>
+                </nav>
+            </header>
+            <main>
+                <section id="home">
+                    <h1>Bem-vindo à Station Syn!</h1>
+                </section>
+                <section id="about">
+                    <h2>Sobre Nós</h2>
+                    <p>Station Syn é um sistema de estacionamento inovador criado no Brasil pela empresa Ortiwell. Este sistema proporciona um controle e gestão abrangentes para clientes mensais e rotativos, facilitando a operação dos estacionamentos de maneira eficiente e prática.</p>
+        
+                    <h2>Principais Funcionalidades</h2>
+                    <ul>
+                        <li><strong>Gestão de Clientes:</strong>
+                            <ul>
+                                <li>Clientes mensais e rotativos.</li>
+                                <li>Cadastro e gerenciamento de dados dos usuários.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Controle de Estacionamento:</strong>
+                            <ul>
+                                <li>Controle de entrada e saída de veículos.</li>
+                                <li>Registro automático de horários.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Sistema de Impressão:</strong>
+                            <ul>
+                                <li>Impressão de cupons com data e hora.</li>
+                                <li>Relatórios detalhados (semanal, diário e mensal).</li>
+                            </ul>
+                        </li>
+                        <li><strong>Relatórios:</strong>
+                            <ul>
+                                <li>Relatórios financeiros e de utilização.</li>
+                                <li>Análise de desempenho e fluxo de veículos.</li>
+                            </ul>
+                        </li>
+                        <li><strong>Acesso Online:</strong>
+                            <ul>
+                                <li>Sistema totalmente online, acessível de qualquer lugar.</li>
+                                <li>Gestão de usuários com diferentes níveis de acesso.</li>
+                            </ul>
+                        </li>
+                    </ul>
+        
+                    <h2>Benefícios</h2>
+                    <ul>
+                        <li><strong>Eficiência:</strong> Automatiza processos de entrada e saída, reduzindo erros e agilizando operações.</li>
+                        <li><strong>Transparência:</strong> Relatórios detalhados garantem a clareza nas operações financeiras e administrativas.</li>
+                        <li><strong>Acessibilidade:</strong> Acesso remoto permite a gestão do estacionamento de qualquer lugar, a qualquer hora.</li>
+                    </ul>
+        
+                    <p>Station Syn se destaca por sua capacidade de integrar tecnologia de ponta em um serviço essencial, transformando a experiência de estacionamento tanto para os administradores quanto para os usuários finais.</p>
+                </section>
+                
+                <div class="container">
+                    <h2 class="mt-4">Contato</h2>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <h4>Siga-nos</h4>
+                            <ul class="list-unstyled">
+                                <li><a href="https://instagram.com/seu_perfil" target="_blank" class="btn btn-outline-primary">Instagram</a></li>
+                                <li><a href="https://facebook.com/seu_perfil" target="_blank" class="btn btn-outline-primary">Facebook</a></li>
+                            </ul>
+                        </div>
+                        <div class="col-md-6">
+                            <h4>Contato</h4>
+                            <ul class="list-unstyled">
+                                <li><a href="https://wa.me/seu_numero" target="_blank" class="btn btn-outline-success">WhatsApp</a></li>
+                                <li><button class="btn btn-outline-info" data-toggle="modal" data-target="#helpModal">Ajuda</button></li>
+                            </ul>
+                        </div>
+                    </div>
+
+            </main>       
+                <h3 class="mt-4">Envie-nos uma mensagem</h3>
+                <form id="contact-form">
+                    <div class="form-group">
+                        <label for="name">Nome</label>
+                        <input type="text" class="form-control" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Mensagem</label>
+                        <textarea class="form-control" id="message" name="message" rows="4" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+                </form>
+            </div>
+        
+            <!-- Modal de Ajuda -->
+            <div class="modal fade" id="helpModal" tabindex="-1" role="dialog" aria-labelledby="helpModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="helpModalLabel">Ajuda</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Como podemos te ajudar? Por favor, descreva seu problema ou dúvida.</p>
+                            <form>
+                                <div class="form-group">
+                                    <label for="helpMessage">Mensagem</label>
+                                    <textarea class="form-control" id="helpMessage" rows="3"></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Enviar</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Bootstrap JS e dependências -->
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+            <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        
+            <footer>
+                <p>&copy; 2024 Ortiwell. Todos os direitos reservados.</p>
+            </footer>
+        
+            <script>
+                // Inicializa o EmailJS com o seu user_id
+                emailjs.init("user_id_aqui");  // Substitua pelo seu user_id
+        
+                // Função para enviar o formulário de contato
+                document.getElementById('contact-form').addEventListener('submit', function(event) {
+                    event.preventDefault();  // Previne o comportamento padrão de envio do formulário
+        
+                    const form = event.target;
+                    const name = form.name.value;
+                    const email = form.email.value;
+                    const message = form.message.value;
+        
+                    // Envia o e-mail usando o template configurado no EmailJS
+                    emailjs.sendForm('service_id_aqui', 'template_id_aqui', form)
+                        .then(function(response) {
+                            alert("Mensagem enviada com sucesso!");
+                            form.reset();  // Reseta o formulário após envio
+                        }, function(error) {
+                            alert("Falha no envio da mensagem. Tente novamente.");
+                        });
+                });
+            </script>
+        </body>
+        </html>
+        
