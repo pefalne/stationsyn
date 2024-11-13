@@ -6,32 +6,49 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #110F0F; /* Cor de fundo escura */
-    color: white;
+    font-family: 'Poppins', Arial, Helvetica, sans-serif;
+    background-color: #f8f8f8; /* Cor de fundo clara */
+    color: #333; /* Texto escuro */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     min-height: 100vh;
     padding-top: 20px;
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+body.dark-mode {
+    background-color: #333;
+    color: #fff;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* Cabeçalho */
 header {
-    background-color: #FFB30F;
-    color: #110F0F;
+    background-color: #FFB30F; /* Amarelo */
+    color: #110F0F; /* Texto escuro */
     width: 100%;
     padding: 20px 0;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave */
 }
 
-header h1 {
-    font-size: 36px;
+header .logotipo img {
+    width: 150px;
+    height: auto;
+}
+
+header .header-title h1 {
+    font-size: 28px;
+    margin-top: 10px;
     color: #110F0F;
 }
 
-/* Conteúdo principal */
+/* Container de conteúdo principal */
 .content {
     width: 90%;
     max-width: 1100px;
@@ -41,8 +58,10 @@ header h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     margin-top: 30px;
     color: #110F0F;
+    position: relative;
 }
 
+/* Formulário e inputs */
 form {
     display: flex;
     flex-direction: column;
@@ -52,41 +71,47 @@ form {
 label {
     font-size: 16px;
     color: #110F0F;
+    font-weight: bold;
 }
 
-input {
-    padding: 15px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
+input,
+select {
+    padding: 14px;
+    border-radius: 6px;
+    border: 1px solid #ddd;
+    background-color: #f1f1f1;
+    color: #333;
     font-size: 16px;
-    background-color: #f9f9f9;
-    color: #110F0F;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-input:focus {
+input:focus,
+select:focus {
     border-color: #FFB30F;
+    outline: none;
+    background-color: #e6e6e6;
 }
 
+/* Botões */
 button {
     padding: 15px;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     background-color: #FFB30F;
     color: #110F0F;
     font-size: 16px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 100%;
+    margin-top: 10px;
 }
 
 button:hover {
     background-color: #e68900;
+    transform: scale(1.05);
 }
 
-/* Tabela de Vendas */
-.table-container {
-    margin-top: 20px;
-}
-
+/* Tabelas */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -101,11 +126,13 @@ th, td {
 
 th {
     background-color: #FFB30F;
-    color: #110F0F;
+    color: #fff;
+    font-weight: bold;
 }
 
 td {
     background-color: #f9f9f9;
+    color: #110F0F;
 }
 
 td button {
@@ -115,20 +142,85 @@ td button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 td button:hover {
     background-color: #e68900;
+    transform: scale(1.05);
 }
 
-/* Texto sem dados */
-.no-data {
-    color: #FFB30F;
-    text-align: center;
+/* Resumo de pagamento */
+.payment-summary table {
+    width: 100%;
+    border-collapse: collapse;
     margin-top: 20px;
 }
 
-/* Botões */
+.payment-summary th, .payment-summary td {
+    padding: 12px;
+    border: 1px solid #ddd;
+}
+
+.payment-summary th {
+    background-color: #FFB30F;
+    color: white;
+}
+
+.payment-summary td {
+    background-color: #f9f9f9;
+}
+
+.payment-summary .total-row {
+    font-weight: bold;
+}
+
+/* Container de pagamento */
+.payment-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    width: 80%;
+    max-width: 850px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
+}
+
+.payment-container h2 {
+    text-align: center;
+    color: #FFB30F;
+    font-size: 26px;
+}
+
+/* Métodos de pagamento */
+.payment-method {
+    margin-bottom: 20px;
+}
+
+.payment-method select {
+    width: 100%;
+    padding: 14px;
+    background-color: #f1f1f1;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 16px;
+}
+
+/* Rodapé */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 12px 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    font-size: 14px;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Botões de navegação */
 .buttons-container {
     margin-top: 30px;
     text-align: center;
@@ -141,33 +233,27 @@ td button:hover {
     text-decoration: none;
     border-radius: 5px;
     font-size: 18px;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease;
 }
 
 .back-button:hover {
     background-color: #202018;
-}
-
-/* Rodapé */
-footer {
-    background-color: #110F0F;
-    color: #FFB30F;
-    text-align: center;
-    padding: 10px 0;
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    font-size: 14px;
+    transform: scale(1.05);
 }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .content {
-        width: 95%;
+    .content,
+    .payment-container {
+        width: 90%;
     }
 
     header h1 {
-        font-size: 28px;
+        font-size: 24px;
+    }
+
+    h2, h3 {
+        font-size: 22px;
     }
 
     table {
@@ -177,4 +263,106 @@ footer {
     th, td {
         padding: 10px;
     }
+
+    button {
+        font-size: 14px;
+        padding: 12px;
+    }
+
+    .back-button {
+        font-size: 16px;
+        padding: 10px 25px;
+    }
+
+    .payment-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .payment-buttons button {
+        width: 100%;
+    }
+}
+
+/* Estilo para impressão */
+@media print {
+    body {
+        background-color: #fff;
+        color: #000;
+    }
+
+    .payment-container {
+        width: 100%;
+        box-shadow: none;
+        padding: 20px;
+    }
+
+    footer {
+        display: none;
+    }
+
+    .payment-buttons {
+        display: none;
+    }
+
+    .payment-method select,
+    .customer-info input {
+        border: 1px solid #000;
+        background-color: #fff;
+    }
+}
+
+/* Modo escuro */
+body.dark-mode {
+    background-color: #333; /* Fundo mais escuro no modo escuro */
+    color: #fff; /* Texto claro */
+}
+
+body.dark-mode header {
+    background-color: #222; /* Cor de fundo do cabeçalho */
+}
+
+body.dark-mode .payment-container {
+    background-color: #444; /* Cor de fundo da área de pagamento */
+    color: #fff; /* Texto claro na área de pagamento */
+}
+
+body.dark-mode button {
+    background-color: #FFB30F; /* Cor do botão no modo escuro */
+    color: #110F0F; /* Texto escuro no botão */
+}
+
+body.dark-mode .payment-summary th {
+    background-color: #222; /* Cabeçalho da tabela no modo escuro */
+    color: #FFB30F; /* Cor do texto no cabeçalho da tabela */
+}
+
+body.dark-mode .payment-summary td {
+    background-color: #333; /* Cor de fundo das células da tabela */
+    color: #fff; /* Cor do texto nas células da tabela */
+}
+
+/* Botão de modo escuro */
+.toggle-dark-mode {
+    background-color: #FFB30F;
+    color: #110F0F;
+    padding: 10px 15px;
+    border-radius: 6px;
+    font-size: 14px;
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.toggle-dark-mode:hover {
+    background-color: #e68900; /* Cor ao passar o mouse */
+    transform: scale(1.05); /* Efeito de zoom no hover */
+}
+
+.toggle-dark-mode:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255, 179, 15, 0.5); /* Efeito de foco */
 }

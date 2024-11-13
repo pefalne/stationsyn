@@ -3,40 +3,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Página inicial do Estacionamento Rio Branco. Acesse entradas, consultas, relatórios e saída de veículos.">
+    <meta property="og:title" content="Bem-Vindo - Estacionamento Rio Branco">
+    <meta property="og:description" content="Gerencie os registros de estacionamento, consulte entradas e saídas e visualize relatórios.">
     <title>Bem-Vindo - StationSyn</title>
+
+    <!-- Estilos -->
     <link rel="stylesheet" href="style.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Script -->
     <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
+    <!-- Cabeçalho -->
+    <header class="text-center position-relative">
         <div class="logotipo">
-            <img src="images/logo_estacionamento_rio_branco.png" alt="Logo Estacionamento Rio Branco">
+            <img src="images/logo_estacionamento_rio_branco.png" alt="Logo Estacionamento Rio Branco" class="img-fluid">
         </div>
         <div class="header-title">
             <h1>Estacionamento Rio Branco</h1>
         </div>
+
+        <!-- Data e Hora Atual -->
+        <div id="datetime" class="position-absolute top-0 right-0 mt-3 mr-3 text-white bg-dark p-2 rounded">
+            <!-- Data e hora serão atualizados aqui -->
+        </div>
     </header>
 
-    <div class="buttons-container">
-        <button onclick="window.location.href='create.html'">Entrada</button>
-        <button onclick="window.location.href='consult.html'">Consultar</button>
-        <button onclick="window.location.href='report.html'">Relatório</button>
-        <button onclick="window.location.href='pagamento.html'">Saída</button>
+    <!-- Botões principais -->
+    <div class="buttons-container text-center mt-4">
+        <button class="btn btn-primary m-2" onclick="window.location.href='create.html'">Entrada</button>
+        <button class="btn btn-info m-2" onclick="window.location.href='consult.html'">Consultar</button>
+        <button class="btn btn-success m-2" onclick="window.location.href='report.html'">Relatório</button>
+        <button class="btn btn-warning m-2" onclick="window.location.href='payment.html'">Caixa</button>
     </div>
 
-    <br><br>
-
-    <div class="table-container">
+    <!-- Tabela de Registros de Estacionamento -->
+    <div class="table-container mt-5">
         <h2>Registros de Estacionamento</h2>
-        <table>
-            <thead>
+        <table class="table table-bordered">
+            <thead class="thead-dark">
                 <tr>
-                    <th>Cupom</th>
-                    <th>Data</th>
-                    <th>Hora</th>
-                    <th>Tipo de Veículo</th>
-                    <th>Observação</th>
-                    <th>Ações</th>
+                    <th scope="col">Cupom</th>
+                    <th scope="col">Data</th>
+                    <th scope="col">Hora</th>
+                    <th scope="col">Tipo de Veículo</th>
+                    <th scope="col">Observação</th>
+                    <th scope="col">Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -47,8 +61,8 @@
                     <td>Carro</td>
                     <td>Cliente VIP</td>
                     <td>
-                        <button onclick="window.location.href='edit.html?cupom=00123'">Editar</button>
-                        <button onclick="deleteRecord(1)">Excluir</button>
+                        <button class="btn btn-warning btn-sm" onclick="window.location.href='edit.html?cupom=00123'">Editar</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteRecord(1)">Excluir</button>
                     </td>
                 </tr>
                 <tr>
@@ -58,11 +72,10 @@
                     <td>Moto</td>
                     <td>Pagamento em dinheiro</td>
                     <td>
-                        <button onclick="window.location.href='edit.html?cupom=00124'">Editar</button>
-                        <button onclick="deleteRecord(2)">Excluir</button>
+                        <button class="btn btn-warning btn-sm" onclick="window.location.href='edit.html?cupom=00124'">Editar</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteRecord(2)">Excluir</button>
                     </td>
                 </tr>
-                <!-- Exemplo adicional de registro -->
                 <tr>
                     <td>00125</td>
                     <td>12/11/2024</td>
@@ -70,19 +83,51 @@
                     <td>Van</td>
                     <td>Pagamento via cartão</td>
                     <td>
-                        <button onclick="window.location.href='edit.html?cupom=00125'">Editar</button>
-                        <button onclick="deleteRecord(3)">Excluir</button>
+                        <button class="btn btn-warning btn-sm" onclick="window.location.href='edit.html?cupom=00125'">Editar</button>
+                        <button class="btn btn-danger btn-sm" onclick="deleteRecord(3)">Excluir</button>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
 
-    <br>
-    <button onclick="window.location.href='homepage.html'">Sair do Sistema</button>
-    <br><br>
-    <footer>
-        <p>Ortiwell &copy; 2024</p>
+    <!-- Botão de Logout -->
+    <div class="text-center mt-4">
+        <button class="btn btn-secondary" onclick="window.location.href='homepage.html'">Sair do Sistema</button>
+    </div>
+
+    <!-- Rodapé -->
+    <footer class="text-center mt-4">
+        <p>&copy; 2024 Ortiwell. Todos os direitos reservados.</p>
     </footer>
+
+    <!-- Scripts Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Script para Atualização de Data e Hora -->
+    <script>
+        // Função para formatar a data e hora
+        function updateDateTime() {
+            var now = new Date();
+            var day = now.getDate().toString().padStart(2, '0');
+            var month = (now.getMonth() + 1).toString().padStart(2, '0');
+            var year = now.getFullYear();
+            var hours = now.getHours().toString().padStart(2, '0');
+            var minutes = now.getMinutes().toString().padStart(2, '0');
+            var seconds = now.getSeconds().toString().padStart(2, '0');
+            
+            var dateTimeString = `${day}/${month}/${year} ${hours}:${minutes}:${seconds}`;
+            
+            document.getElementById("datetime").innerText = dateTimeString;
+        }
+
+        // Atualizar a data e hora a cada segundo
+        setInterval(updateDateTime, 1000);
+        
+        // Atualizar uma vez ao carregar a página
+        updateDateTime();
+    </script>
 </body>
 </html>

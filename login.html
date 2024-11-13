@@ -3,45 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Login do Estacionamento Rio Branco. Acesse sua conta para gerenciar suas informações e reservas.">
+    <meta property="og:title" content="Login - Estacionamento Rio Branco">
+    <meta property="og:description" content="Faça login no Estacionamento Rio Branco para acessar sua conta e gerenciar suas informações.">
     <title>Login - StationSyn</title>
+
+    <!-- Estilos -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Scripts -->
     <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
+    <!-- Cabeçalho -->
+    <header class="text-center">
         <div class="logotipo">
-            <img src="images/logo_estacionamento_rio_branco.png" alt="Logo Estacionamento Rio Branco">
+            <img src="images/logo_estacionamento_rio_branco.png" alt="Logo Estacionamento Rio Branco" class="img-fluid">
         </div>
         <div class="header-title">
             <h1>Estacionamento Rio Branco</h1>
         </div>
     </header>
 
+    <!-- Formulário de Login -->
     <div class="login-container">
         <h2>Login</h2>
-        <form action="index.html">
-            <input type="email" name="email" placeholder="E-mail">
-            <input type="password" name="senha" placeholder="Senha">
-            <button type="submit">Entrar</button>
+        <form action="index.html" method="POST">
+            <div class="form-group">
+                <label for="email">E-mail</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="senha">Senha</label>
+                <input type="password" id="senha" name="senha" placeholder="Digite sua senha" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Entrar</button>
         </form>
-        <h4 id="forgotPasswordLink" class="forgot-password-link">Esqueceu a senha?</h4>
+        <h4 id="forgotPasswordLink" class="forgot-password-link" role="button" aria-expanded="false" aria-controls="forgotPasswordPopup">Esqueceu a senha?</h4>
     </div>
 
     <!-- Popup de Esqueci a Senha -->
-    <div id="forgotPasswordPopup" class="popup-overlay">
+    <div id="forgotPasswordPopup" class="popup-overlay" role="dialog" aria-labelledby="forgotPasswordPopupLabel" aria-hidden="true">
         <div class="popup-content">
-            <h2>Esqueci a Senha</h2>
+            <h2 id="forgotPasswordPopupLabel">Esqueci a Senha</h2>
             <form id="forgotPasswordForm" action="forgot_password.php" method="POST">
-                <label for="email">E-mail:</label>
-                <input type="email" id="email" name="email" required>
-                <button type="submit">Enviar</button>
+                <div class="form-group">
+                    <label for="emailForgotPassword">E-mail</label>
+                    <input type="email" id="emailForgotPassword" name="email" placeholder="Digite seu e-mail" class="form-control" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Enviar</button>
             </form>
-            <button id="closePopup">Fechar</button>
+            <button id="closePopup" class="btn btn-secondary" onclick="closePopup()">Fechar</button>
         </div>
     </div>
 
-    <footer>
-        <p>Ortiwell &copy; 2024</p>
+    <!-- Rodapé -->
+    <footer class="text-center mt-4">
+        <p>&copy; 2024 Ortiwell. Todos os direitos reservados.</p>
     </footer>
+
+    <script>
+        // Script para abrir o popup de "Esqueci a Senha"
+        document.getElementById('forgotPasswordLink').addEventListener('click', function () {
+            document.getElementById('forgotPasswordPopup').setAttribute('aria-hidden', 'false');
+            document.getElementById('forgotPasswordPopup').style.display = 'block';
+            document.getElementById('emailForgotPassword').focus();
+        });
+
+        // Função para fechar o popup
+        function closePopup() {
+            document.getElementById('forgotPasswordPopup').setAttribute('aria-hidden', 'true');
+            document.getElementById('forgotPasswordPopup').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

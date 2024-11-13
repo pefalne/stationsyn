@@ -1,71 +1,83 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Relatório de Vendas</title>
+    <title>Relatório de Vendas - StationSyn</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Relatório de Vendas</h1>
+    <header>
+        <div class="logotipo">
+            <img src="images/logo_estacionamento_rio_branco.png" alt="Logo Estacionamento Rio Branco">
+        </div>
+        <div class="header-title">
+            <h1>Estacionamento Rio Branco</h1>
+        </div>
+    </header>
+
+    <main class="content">
+        <h2>Relatório de Vendas</h2>
 
         <!-- Formulário para selecionar o período -->
-        <form action="relatorio.php" method="GET">
-            <div class="form-group">
-                <label for="start_date">Data Inicial:</label>
-                <input type="date" name="start_date" id="start_date">
-            </div>
-            
-            <div class="form-group">
-                <label for="end_date">Data Final:</label>
-                <input type="date" name="end_date" id="end_date">
-            </div>
+        <section class="report-form">
+            <form action="relatorio.php" method="GET">
+                <div class="form-group">
+                    <label for="start_date">Data Inicial:</label>
+                    <input type="date" name="start_date" id="start_date" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="end_date">Data Final:</label>
+                    <input type="date" name="end_date" id="end_date" required>
+                </div>
 
-            <button type="submit">Gerar Relatório</button>
-        </form>
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Gerar Relatório</button>
+                </div>
+            </form>
+        </section>
 
+        <!-- Exibição do Relatório -->
         <?php if (isset($sales_data) && !empty($sales_data)): ?>
-            <h2>Relatório de Vendas de <?= $_GET['start_date'] ?> a <?= $_GET['end_date'] ?></h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th>ID da Venda</th>
-                        <th>Data da Venda</th>
-                        <th>Nome do Cliente</th>
-                        <th>Produto</th>
-                        <th>Quantidade</th>
-                        <th>Total</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($sales_data as $sale): ?>
+            <section class="report-table">
+                <h3>Relatório de Vendas de <?= $_GET['start_date'] ?> a <?= $_GET['end_date'] ?></h3>
+                <table>
+                    <thead>
                         <tr>
-                            <td><?= $sale['sale_id'] ?></td>
-                            <td><?= $sale['sale_date'] ?></td>
-                            <td><?= $sale['customer_name'] ?></td>
-                            <td><?= $sale['product_name'] ?></td>
-                            <td><?= $sale['quantity'] ?></td>
-                            <td><?= number_format($sale['total_amount'], 2, ',', '.') ?></td>
+                            <th>ID da Venda</th>
+                            <th>Data da Venda</th>
+                            <th>Nome do Cliente</th>
+                            <th>Produto</th>
+                            <th>Quantidade</th>
+                            <th>Total</th>
                         </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($sales_data as $sale): ?>
+                            <tr>
+                                <td><?= $sale['sale_id'] ?></td>
+                                <td><?= $sale['sale_date'] ?></td>
+                                <td><?= $sale['customer_name'] ?></td>
+                                <td><?= $sale['product_name'] ?></td>
+                                <td><?= $sale['quantity'] ?></td>
+                                <td><?= number_format($sale['total_amount'], 2, ',', '.') ?></td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                </table>
+            </section>
         <?php else: ?>
-            <p>Nenhum dado encontrado para o período selecionado.</p>
+            <p class="no-data">Nenhum dado encontrado para o período selecionado.</p>
         <?php endif; ?>
 
-        <div>
-            <button type="button" class="cancel-btn" onclick="window.location.href='index.html'">Voltar</button>
+        <div class="buttons-container">
+            <button class="back-button" onclick="window.location.href='index.html'">Voltar</button>
         </div>
-    </div>
-</form>
-</div>
-</main>
+    </main>
 
-<footer>
-<p>Ortiwell &copy; 2024 - Todos os direitos reservados.</p>
-</footer>
-
+    <footer>
+        <p>Ortiwell &copy; 2024 - Todos os direitos reservados.</p>
+    </footer>
 </body>
 </html>

@@ -3,35 +3,59 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Busca de Cliente</title>
-    <link rel="stylesheet" href="style.css"> <!-- Adiciona o link para o CSS externo -->
-    <script src="script.js" defer></script> <!-- Adiciona o link para o JS externo -->
-    </head>
-    <body>
+    <title>Busca de Cliente - StationSyn</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link para o CSS -->
+    <script src="script.js" defer></script> <!-- Link para o JS -->
+</head>
+<body>
+    <header>
+        <div class="logotipo">
+            <img src="images/logo_estacionamento_rio_branco.png" alt="Logo Estacionamento Rio Branco">
+        </div>
+        <div class="header-title">
+            <h1>Estacionamento Rio Branco</h1>
+        </div>
+    </header>
 
+    <main class="content">
+        <h2>Busca de Cliente</h2>
 
-    <h1>Busca de Cliente</h1>
+        <!-- Formulário de Busca -->
+        <section class="search-form">
+            <form id="formBusca" method="GET" action="resultado_busca.php">
+                <div class="form-group">
+                    <label for="buscaNome">Nome:</label>
+                    <input type="text" id="buscaNome" name="buscaNome" placeholder="Digite o nome do cliente">
+                </div>
 
-    <!-- Formulário para buscar as informações -->
-    <form id="formBusca">
-        <label for="buscaNome">Nome:</label>
-        <input type="text" id="buscaNome" name="buscaNome"><br>
+                <div class="form-group">
+                    <label for="buscaPlaca">Placa do Veículo:</label>
+                    <input type="text" id="buscaPlaca" name="buscaPlaca" placeholder="ABC-0000" pattern="[A-Z]{3}-[0-9]{4}" title="Formato de placa: ABC-1234">
+                </div>
 
-        <label for="buscaPlaca">Placa do Veículo:</label>
-        <input type="text" id="buscaPlaca" name="buscaPlaca" placeholder="ABC-0000" pattern="[A-Z]{3}-[0-9]{4}"><br>
+                <div class="form-group">
+                    <label for="buscaCpfCnpj">CPF ou CNPJ:</label>
+                    <input type="text" id="buscaCpfCnpj" name="buscaCpfCnpj" placeholder="CPF ou CNPJ">
+                </div>
 
-        <label for="buscaCpfCnpj">CPF ou CNPJ:</label>
-        <input type="text" id="buscaCpfCnpj" name="buscaCpfCnpj"><br>
+                <div class="form-group">
+                    <label for="buscaCupom">Cupom:</label>
+                    <input type="text" id="buscaCupom" name="buscaCupom" placeholder="000000">
+                </div>
 
-        <label for="buscaCupom">Cupom:</label>
-        <input type="text" id="buscaCupom" name="buscaCupom" placeholder="000000"><br>
-        <input type="submit" value="Buscar">
-    </form>
-<br><br>
-    <button onclick="window.location.href='index.html'">Voltar</button>
-    <br><br>
+                <div class="form-actions">
+                    <button type="submit" class="btn-submit">Buscar</button>
+                </div>
+            </form>
+        </section>
+
+        <div class="buttons-container">
+            <button class="back-button" onclick="window.location.href='index.html'">Voltar</button>
+        </div>
+    </main>
+
     <footer>
-        <p>Ortiwell &copy; 2024</p>
+        <p>Ortiwell &copy; 2024 - Todos os direitos reservados.</p>
     </footer>
 </body>
 </html>
